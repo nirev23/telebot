@@ -56,7 +56,7 @@ get:
 	go get
 
 image:
-	docker build --platform=local . -t ${REGISTRY}/${APP}:${VERSION}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}
