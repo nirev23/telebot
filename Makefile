@@ -1,7 +1,8 @@
 APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=nirev23
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
-IMAGE_ID=$(shell docker images --format "{{.ID}}")
+IMAGE_ID=$(shell docker images -q)
+#TEST=ON
 
 .DEFAULT_GOAL := help
 
@@ -62,5 +63,9 @@ push:
 	docker push ${REGISTRY}/${APP}:${VERSION}
 
 clean:
+ifeq (${IMAGE_ID},)        
 	@rm -rf telebot
-#	@docker rmi ${IMAGE_ID}
+else
+	@docker rmi ${IMAGE_ID}
+endif
+#if image present - delete it, if not present - delete rendered app
