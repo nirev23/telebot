@@ -63,4 +63,4 @@ push:
 
 clean:
 	@rm -rf telebot
-	@docker rmi ${IMAGE_ID}
+#	@docker rmi ${IMAGE_ID}
