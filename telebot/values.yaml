@@ -1,0 +1,15 @@
+# Default values for telebot.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nirev23
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "v1.0.5-958ae77"
+
+secret:
+  name: kbot
+  tokenKey: token
+  tokenName: TELE_TOKEN
