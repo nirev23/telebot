@@ -8,6 +8,7 @@ image:
   repository: nirev23
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0.5-958ae77"
+  arch: amd64
 
 secret:
   name: kbot
